@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+</head>
+<body>
+    <h1>My Book Library</h1>
+    <a href="/add-book">Add New Book</a>
+
+
+    <!-- Sorting options -->
+
+    <form method="GET" action="/" >
+        <select name="sort" >
+            <option value="recent">Sort By Recency</option>
+            <option value="rating">Sort By rating</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
+    
+    <!-- Display all books -->
+    <div class="book-list"><
+        <%= books.forEach(book => { %>
+            <div class="book">
+                <img src="<% book.cover_url %>" alt="Cover for <%= book.title %>">
+                <h3><%=book.title %></h3>
+                <p>by <%= book.author %></p>
+                <p>Rating <%=book.rating %></p>
+                <a href="/books/<%=book.id %>">View Details</a>
+            </div>
+       <% }); %> 
+    </div>
+     
+
+
+</body>
+</html>
